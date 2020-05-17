@@ -3,6 +3,9 @@
 
 name: Build and deploy JAR app to Azure Web App - test-mkr10
 
+env:
+  JAVA_OPTS: -Dserver.port=80 
+
 on:
   push:
     branches:
