@@ -30,3 +30,4 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_ad62a3ffee744cedb7975f7c3ec6123f }}
         package: '${{ github.workspace }}/target/*.jar'
+        command: 'java -Dserver.port=%HTTP_PLATFORM_PORT% -jar ${{ github.workspace }}/target/*.jar'
