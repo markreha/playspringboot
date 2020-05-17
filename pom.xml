@@ -94,18 +94,12 @@
 	<build>
 		<resources>		
 			<resource>
-				<directory>${project.basedir}/src/main/resources</directory>
-      			</resource>
+				<directory>src/main/resources</directory>
+      		</resource>
 			<resource>
-				<directory>${project.basedir}/src/main/webapp</directory>
-      			</resource>
-			<resource>
-				<directory>${project.basedir}</directory>
-                 		<includes>
-                    			<include>web.config</include>
-                  		</includes>
-      			</resource>
-	    	</resources>
+				<directory>src/main/webapp</directory>
+      		</resource>
+    	</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
