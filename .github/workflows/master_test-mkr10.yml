@@ -31,6 +31,6 @@ jobs:
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_ad62a3ffee744cedb7975f7c3ec6123f }}
         package: '${{ github.workspace }}/target/*.jar'
     - name: Start Azure Web App
-      run: java -jar D://home/site/wwwroot/app.jar -Dserver.port=80
+      run: java -jar D:\home\site\wwwroot/app.jar -Dserver.port=80
   
 
