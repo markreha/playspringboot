@@ -32,4 +32,4 @@ jobs:
         package: '${{ github.workspace }}/target/*.jar'
 
     - name: Start the Azure Web App
-      run: 'java -Dserver.port=80 -jar %HOME%/site/wwwroot/app.jar' 
+      run: java -Dserver.port=80 -jar %HOME%/site/wwwroot/app.jar 
