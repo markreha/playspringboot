@@ -5,6 +5,7 @@
 2. Test the Java Spring App locally by using JAVA: Open a terminal and navigate to the root of your project. Run the following command from the terminal window: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
 
 ## Important Fies
+* .github/workflows - build scripts for Azure GitHub build pipeline
 * Procfile - start file for both Heroku and AWS Cloud Platforms
 * web.config - start file the Azure Cloud Platform
 
