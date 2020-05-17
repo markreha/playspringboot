@@ -33,4 +33,4 @@ jobs:
 
     - name: Start the Azure Web App
       with:
-          command: 'java -Dserver.port=%HTTP_PLATFORM_PORT% -jar %HOME%/site/wwwroot/app.jar'
+          command: 'java -Dserver.port=%HTTP_PLATFORM_PORT% -jar %HOME%/site/wwwroot/app.jar' 
