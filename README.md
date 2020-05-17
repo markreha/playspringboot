@@ -6,7 +6,7 @@
 
 ## Important Fies
 * Procfile - start file for both Heroku and AWS Cloud Platforms
-* web.config.xml - start file the AWS Cloud Platform
+* web.config - start file the Azure Cloud Platform
 
 ## Deployment to Cloud Platform Instructions
 TODO
