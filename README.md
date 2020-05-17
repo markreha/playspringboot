@@ -1,4 +1,4 @@
-# A simple Spring Boot that can be used for testing in various Cloud Platforms like Azure and Heroku. See the following directions for deploying a Spring Boot application to Azure, AWS, Heroku, and Google Cloud.
+# A simple Java Spring Boot that can be used for testing in various Cloud Platforms like Azure and Heroku. See the following directions for deploying a Java Spring Boot application to Azure, AWS, Heroku, and Google Cloud.
 
 ## Available Scripts
 In the project directory, you can run:
