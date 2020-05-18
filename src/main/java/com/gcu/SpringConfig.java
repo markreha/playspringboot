@@ -45,6 +45,7 @@ public class SpringConfig
 
 	}
 	
+/*	
 	@Bean(name="dataSource")
 	public DataSource getDataSource() 
 	{
@@ -56,6 +57,7 @@ public class SpringConfig
                 .password(password)
                 .build();
     }
+*/
 	
 	@Bean(name="testBusinessService")
 	public TestBusinessServiceInterface getOrdersBusiness()
