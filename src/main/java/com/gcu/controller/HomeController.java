@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.gcu.business.TestBusinessServiceInterface;
 import org.slf4j.Logger;
 
 @Controller
@@ -27,7 +25,7 @@ public class HomeController
 	 */
 	@RequestMapping(path="/", method=RequestMethod.GET)		// OR could use @GetMapping("/")
 	@ResponseBody
-	public String printHello() 
+	public String welcome() 
 	{
 		// Log the API call
 		logger.info("==========> Entering HomeController.printHello() at " + "/");
