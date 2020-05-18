@@ -6,8 +6,8 @@ import com.gcu.data.TestDataServiceInterface;
 
 public class TestBusinessService implements TestBusinessServiceInterface
 {
-	@Autowired
-	TestDataServiceInterface service;
+//	@Autowired
+//	TestDataServiceInterface service;
 
 	@Override
 	public String getMessage()
@@ -18,6 +18,7 @@ public class TestBusinessService implements TestBusinessServiceInterface
 	@Override
 	public int getCount()
 	{
-		return service.getCount();
+		return 0;
+//		return service.getCount();
 	}
 }
