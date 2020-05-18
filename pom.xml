@@ -8,11 +8,13 @@
 		<version>2.3.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>com.gcu</groupId>
 	<artifactId>playspringboot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>playspringboot</name>
 	<description>Spring Boot Play Activity</description>
+	<packaging>jar</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
