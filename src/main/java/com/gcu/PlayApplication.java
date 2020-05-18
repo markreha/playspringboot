@@ -19,6 +19,7 @@ public class PlayApplication //extends SpringBootServletInitializer
 //        return application.sources(PlayApplication.class);
 //    }
 
+	
 	public static void main(String[] args)
 	{
 		SpringApplication.run(PlayApplication.class, args);
