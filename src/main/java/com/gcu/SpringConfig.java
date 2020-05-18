@@ -65,9 +65,11 @@ public class SpringConfig
 		return new TestBusinessService();
 	}
 	
+/*	
 	@Bean(name="testDataService")
 	public TestDataServiceInterface getCount()
 	{
 		return new TestDataService();
 	}
+*/	
 }
