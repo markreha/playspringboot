@@ -9,7 +9,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 public class TestDataService implements TestDataServiceInterface
 {
 	@SuppressWarnings("unused")
-	@Autowired
+//	@Autowired
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObject;
 
