@@ -37,8 +37,7 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
-<!--		
+		</dependency>		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -50,7 +49,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
--->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
@@ -108,6 +106,11 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<plugin>
+                	<groupId>org.apache.maven.plugins</groupId>
+                	<artifactId>maven-surefire-plugin</artifactId>
+                	<version>2.22.0</version>
+            	</plugin>
 	</build>
 
 </project>
