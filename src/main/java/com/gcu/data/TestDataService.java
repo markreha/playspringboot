@@ -9,7 +9,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 public class TestDataService implements TestDataServiceInterface
 {
 	@SuppressWarnings("unused")
-//	@Autowired
+	@Autowired
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObject;
 
@@ -38,7 +38,7 @@ public class TestDataService implements TestDataServiceInterface
      * 
      * @param dataSource Spring Data Source to inject into this DAO
      */
-//	@Autowired
+     @Autowired
      public void setDataSource(DataSource dataSource) 
     {
         this.dataSource = dataSource;
