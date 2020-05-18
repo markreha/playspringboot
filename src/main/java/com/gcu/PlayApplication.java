@@ -11,14 +11,13 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 @ComponentScan({ "com.gcu" })
 @SpringBootConfiguration
-public class PlayApplication //extends SpringBootServletInitializer
+public class PlayApplication extends SpringBootServletInitializer
 {
-//   @Override
-//    protected final SpringApplicationBuilder configure(final SpringApplicationBuilder application) 
-//    {
-//        return application.sources(PlayApplication.class);
-//    }
-
+   @Override
+    protected final SpringApplicationBuilder configure(final SpringApplicationBuilder application) 
+    {
+        return application.sources(PlayApplication.class);
+    }
 	
 	public static void main(String[] args)
 	{
