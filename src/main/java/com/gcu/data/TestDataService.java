@@ -38,7 +38,7 @@ public class TestDataService implements TestDataServiceInterface
      * 
      * @param dataSource Spring Data Source to inject into this DAO
      */
-     @Autowired
+	@Autowired
      public void setDataSource(DataSource dataSource) 
     {
         this.dataSource = dataSource;

@@ -44,7 +44,7 @@ public class SpringConfig
 		return tiles;
 
 	}
-		
+	
 	@Bean(name="dataSource")
 	public DataSource getDataSource() 
 	{
@@ -55,17 +55,17 @@ public class SpringConfig
                 .username(username)
                 .password(password)
                 .build();
-    	}
+    }
 	
 	@Bean(name="testBusinessService")
 	public TestBusinessServiceInterface getOrdersBusiness()
 	{
 		return new TestBusinessService();
 	}
-		
+	
 	@Bean(name="testDataService")
 	public TestDataServiceInterface getCount()
 	{
 		return new TestDataService();
-	}	
+	}
 }

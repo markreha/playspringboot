@@ -13,12 +13,12 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootConfiguration
 public class PlayApplication extends SpringBootServletInitializer
 {
-   @Override
+    @Override
     protected final SpringApplicationBuilder configure(final SpringApplicationBuilder application) 
     {
         return application.sources(PlayApplication.class);
     }
-	
+
 	public static void main(String[] args)
 	{
 		SpringApplication.run(PlayApplication.class, args);
