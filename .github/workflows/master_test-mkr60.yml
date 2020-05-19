@@ -29,4 +29,4 @@ jobs:
         app-name: 'test-mkr60'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_d24802a6ec504921b56c514f9469800a }}
-        package: '${{ github.workspace }}/target/*.jar'
+        package: '${{ github.workspace }}/target/*.war'
