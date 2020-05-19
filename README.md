@@ -2,7 +2,7 @@
 
 ## Building and Testing
 1. Run maven from Eclipse to build the project. The build artifacts will be stored in the `target/` directory.
-2. Test the Java Spring App locally by using JAVA: Open a terminal and navigate to the root of your project. Run the following command from the terminal window: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
+2. Test the Java Spring App locally by using JAVA: Open a terminal and navigate to the root of your project. Run the following command from the terminal window: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.war
 
 ## Important Fies
 * .github/workflows - build scripts for Azure GitHub build pipeline
