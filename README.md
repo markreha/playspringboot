@@ -7,7 +7,6 @@
 ## Important Fies
 * .github/workflows - build scripts for Azure GitHub build pipeline
 * Procfile - start file for both Heroku and AWS Cloud Platforms
-* web.config - start file the Azure Cloud Platform
 
 ## Deployment to Cloud Platform Instructions
 TODO
