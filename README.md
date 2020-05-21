@@ -1,4 +1,4 @@
-# A simple Java Spring Boot that can be used for testing in various Cloud Platforms like Azure and Heroku. See the following directions for deploying a Java Spring Boot application to Azure, AWS, Heroku, and Google Cloud. NOTE: if you are using JSP's then you should build and deploy a WAR file.
+# A simple Java Spring Boot with Thymeleaf templates that can be used for testing in various Cloud Platforms like Azure and Heroku. See the following directions for deploying a Java Spring Boot application to Azure, AWS, Heroku, and Google Cloud. NOTE: if you are using JSP's then you should build and deploy a WAR file.
 
 <p align="center">
 <img src="Diagrams/logo1.png"/><img src="Diagrams/logo2.png" /><img src="Diagrams/logo3.png" /> 
