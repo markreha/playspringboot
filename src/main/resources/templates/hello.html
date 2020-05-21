@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+		<meta charset="UTF-8">
+		<title>Spring Boot Play Application</title>
+	</head>
+
+	<body>
+		<div layout:fragment="content">
+			<h2 th:text="${title}">Default Message Text</h2><br/>
+			<img th:src="@{/images/gcu-logo.jpg}"/>
+			<h2 th:text="${message1}">Default Message 2 Text</h2><br/>
+			<h2 th:text="${message2}">Default Message 2 Text</h2><br/>
+			<h2 th:text="${message3}">Default Message 2 Text</h2><br/>
+			<a th:href="@{/}">Start Page</a><br/>
+			<a th:href="@{test3}">Test ModelAndView</a><br/>
+			<a th:href="@{test4?message=Hello World from a Tymelead template!}">Test HTTP Parameters</a><br/>
+			<a th:href="@{test5}">Test a Spring Bean</a><br/>	
+		</div>	
+	</body>
+
+</html>
+
