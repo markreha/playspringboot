@@ -5,6 +5,8 @@ name: Build and deploy JAR app to Azure Web App - test-mkr83
 
 on:
   push:
+    paths-ignore:
+      - 'README.md'
     branches:
       - master
 
