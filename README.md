@@ -9,4 +9,4 @@
 * Procfile - start file for both Heroku and AWS Cloud Platforms
 
 ## Deployment to Cloud Platform Instructions
-TODO
+NOTE: if using JSP's then you should build and deploy a WAR file.
