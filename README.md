@@ -1,4 +1,4 @@
-# A simple Java Spring Boot with Thymeleaf templates that can be used for testing in various Cloud Platforms like Azure and Heroku. See the following directions for deploying a Java Spring Boot application to Azure, AWS, Heroku, and Google Cloud. NOTE: if you are using JSP's then you should build and deploy a WAR file.
+# A simple Java Spring Boot with Thymeleaf templates that can be used for testing in various Cloud Platforms like Azure and Heroku. See the following directions for deploying a Java Spring Boot application to Azure and Heroku. NOTE: if you are using JSP's then you should build and deploy a WAR file.
 
 <p align="center">
 <img src="Diagrams/logo1.png"/><img src="Diagrams/logo2.png" /><img src="Diagrams/logo3.png" /> 
@@ -33,6 +33,7 @@
 5) Goto localhost:8080/ OR localhost:8080/hello/test2 OR localhost:8080/[APP_NAME]/hello/test
 6) Setup Heroku:
 	- Create a new project and use GitHub deployment
+	- If you are encrypting properties values then you will need to set a secret named JASYPT_ENCRYPTOR_PASSWORD to your secret key
 	- Click the Deploy tab. Click the Manual Deply button to manually do a build. Click the Enable Automatic Deploys to enable the CI/CD build pipeline. 
 	- If you app did not start then use the Heroku CLI and run the following commands:
 		- heroku login
@@ -48,6 +49,7 @@
 5) Goto localhost:8080/ OR localhost:8080/hello/test2 OR localhost:8080/[APP_NAME]/hello/test
 6) Setup Azure:
 	- Create a new Web App project. For JSP's select the Java 8 Tomcat 9.0 runtime stack on Windows (if you want to do a manual build) or Linux or select the Java SE 8 runtime. Click the Reivew + Create button. Click the Create button. Test that the application is accessible and with the default content.
+	- If you are encrypting properties values then you will need to set an environment variable named JASYPT_ENCRYPTOR_PASSWORD to your secret key
 	- Deploy the project manually (if Web App is on Windows):
 		- Open up the Advanced Tools. Open a CMD Debug tools terminal. 
 			- Navigate to the site/wwwroot/webapps directory.
