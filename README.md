@@ -10,7 +10,6 @@
 * Spring Core
 * Spring JDBC with MySQL
 * Thymeleaf and Layouts
-* JSR-303 Data Validatiom
 * Jasypt encrytion of database username and password properties 
 	- NOTE: set an environment variable JASYPT_ENCRYPTOR_PASSWORD to your secret key 
 * Deployment to Azure and Heroku
