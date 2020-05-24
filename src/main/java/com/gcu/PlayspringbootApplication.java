@@ -3,9 +3,9 @@ package com.gcu;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
+//import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 
-@EnableEncryptableProperties
+//@EnableEncryptableProperties
 @SpringBootApplication
 public class PlayspringbootApplication 
 {
