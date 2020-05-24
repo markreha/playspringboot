@@ -60,7 +60,14 @@
 		<dependency>
   			<groupId>mysql</groupId>
   			<artifactId>mysql-connector-java</artifactId>
-  		</dependency> 		
+  		</dependency>
+				
+  		<!-- For Jasypt to Encrypt Passwords-->		
+  		<dependency>
+    			<groupId>com.github.ulisesbocchio</groupId>
+    			<artifactId>jasypt-spring-boot-starter</artifactId>
+    			<version>2.1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
