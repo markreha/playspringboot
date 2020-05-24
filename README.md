@@ -4,6 +4,17 @@
 <img src="Diagrams/logo1.png"/><img src="Diagrams/logo2.png" /><img src="Diagrams/logo3.png" /> 
 </p>
 
+## Functionality
+* Spring Boot
+* Spring MVC
+* Spring Core
+* Spring JDBC with MySQL
+* Thymeleaf and Layouts
+* JSR-303 Data Validatiom
+* Jasypt encrytion of database username and password properties 
+	- NOTE: set an environment variable JASYPT_ENCRYPTOR_PASSWORD to your secret key 
+* Deployment to Azure and Heroku
+
 ## Building and Testing
 1. Run maven from Spring Tools Suite or Eclipse to build the project. The build artifacts will be stored in the `target/` directory.
 2. Test the Java Spring App locally by using JAVA: Open a terminal and navigate to the root of your project. Run the following command from the terminal window: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar or java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.war
