@@ -43,11 +43,10 @@
 The following steps can be followed to deploy a Spring Boot application to a Docker Container in Heroku:
 1) Create an application in Heroku either using the CLI or the Web Interface. The application shown in this example is named playspringboot-mkr.
 3) Build a Docker Image either thru the Maven Build Plugin Jib or via a Dockerfile. The image should be built from the openjdk:8-jdk-alpine base image, contain your application in a file named app.jar, expose port 8080, and also set the server.port variable to $PORT in the java startup command. The Docker Image shown in this example is named markreha/playspringboot:1.0.
-	- FROM openjdk:8-jdk-alpine
-	- COPY target/playapplication.jar app.jar
-	- EXPOSE 8080
-	- CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /app.jar" ]
-	
+FROM openjdk:8-jdk-alpine
+COPY target/playapplication.jar app.jar
+EXPOSE 8080
+CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /app.jar" ]
 	- docker build -t markreha/playspringboot:1.0.0 .
 4) Run the Docker Image to make sure it works without error.
 	- docker run -p8090:8080 -it markreha/playspringboot:1.0.0
