@@ -13,9 +13,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>playspringboot</name>
 	<description>Demo project for Spring Boot</description>
+	<packaging>jar</packaging>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>15</java.version>
 	</properties>
 
 	<dependencies>
@@ -25,11 +26,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 		<dependency>
@@ -50,6 +51,13 @@
 			</exclusions>
 		</dependency>
 		
+		<!--  For Data Validation -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		
+		
 		<!--  For Thymelead Layout Dialect (Apache Tiles like behavior -->
 		<dependency>
     		<groupId>nz.net.ultraq.thymeleaf</groupId>
@@ -57,16 +65,21 @@
 		</dependency>
 			
 		<!-- For MySQL Databases -->
+		<!--  For Spring JDBC and the MySQL Database -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
 		<dependency>
   			<groupId>mysql</groupId>
   			<artifactId>mysql-connector-java</artifactId>
-  		</dependency>
-				
+  		</dependency> 		
+  		
   		<!-- For Jasypt to Encrypt Passwords-->		
   		<dependency>
-    			<groupId>com.github.ulisesbocchio</groupId>
-    			<artifactId>jasypt-spring-boot-starter</artifactId>
-    			<version>2.1.0</version>
+    		<groupId>com.github.ulisesbocchio</groupId>
+    		<artifactId>jasypt-spring-boot-starter</artifactId>
+    		<version>2.1.0</version>
 		</dependency>
 	</dependencies>
 
