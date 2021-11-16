@@ -31,10 +31,12 @@
 3) Do a manual Maven build to ensure that everything builds properly. Make sure to include the resources and webapp in the output file of you are using JSP's:
 4) Test the Maven build by opening a terminal window, navigate toe project diretory and running the following command:
 5) Goto localhost:8080/ OR localhost:8080/hello/test2 OR localhost:8080/[APP_NAME]/hello/test
-6) Setup Heroku:
+6) For Heroku if you are using a version greater than Java 8 you will need to add a file named system.properties to the root of your project with the following setting:
+    - java.runtime.version=[VERSION OF JAVA]
+7) Setup Heroku:
 	- Create a new project and use GitHub deployment
 	- If you are encrypting properties values then you will need to set a secret named JASYPT_ENCRYPTOR_PASSWORD to your secret key
-	- Click the Deploy tab. Click the Manual Deply button to manually do a build. Click the Enable Automatic Deploys to enable the CI/CD build pipeline. 
+	- Click the Deploy tab. Click the Manual Deploy button to manually do a build. Click the Enable Automatic Deploys to enable the CI/CD build pipeline. 
 	- If you app did not start then use the Heroku CLI and run the following commands:
 		- heroku login
 		- heroku ps:scale web=1 -a [APP_NAME]
