@@ -73,6 +73,7 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
 	- Update the JDBC string in application.properties with the MySQL Port and make sure to add ?serverTimezone=UTF 
 	- Set the Java version to 11 in the POM.xml and do a Maven build. Rename the output jar to app.jar.
 	- Go to Advanced Tools, navigate to site/wwwroot, delete all all exiting content, and drag and drap a zip file containing the web.config (see example below) (sand app.jar to the page.
+ ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <system.webServer>
@@ -84,6 +85,7 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
         </httpPlatform>
     </system.webServer>
 </configuration>
+ ```
 	- Go to Overview in azure and restart the app.
 	- Click on the app link in the Azure Overview page (it make take a few minutes until app is restarted and running).
 
