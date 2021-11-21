@@ -28,6 +28,7 @@
 ## Heroku:
 1) Add a file named Procfile to the root of the project:
     - java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar or java -Dserver.port=$PORT $JAVA_OPTS -war
+    - NOTE: although not tested this file may now be optional on Heroku for Spring Boot
 2) If desired you can set the web application context to something other than root at / by adding the following to the application.properties file:
     - server.servlet.context-path=/[APP_NAME]
 3) Do a manual Maven build to ensure that everything builds properly. Make sure to include the resources and webapp in the output file of you are using JSP's:
@@ -36,10 +37,13 @@
 6) For Heroku if you are using a version greater than Java 8 you will need to add a file named system.properties to the root of your project with the following setting:
     - java.runtime.version=[VERSION OF JAVA]
 7) Setup Heroku:
-	- Create a new project and use GitHub deployment
-	- If you are encrypting properties values then you will need to set a secret named JASYPT_ENCRYPTOR_PASSWORD to your secret key
-	- Click the Deploy tab. Click the Manual Deploy button to manually do a build. Click the Enable Automatic Deploys to enable the CI/CD build pipeline. 
-	- If you app did not start then use the Heroku CLI and run the following commands:
+	- Create a new project and use GitHub deployment.
+	- Add the JawsDB MySQL database. Update the database configuration in the Spring Boot application.properties files.
+		- NOTE: although not tested it is possible this step is optional on Heroku for Spring Boot
+	- If you are encrypting properties values then you will need to set a secret named JASYPT_ENCRYPTOR_PASSWORD with your Jasper encryption secret key
+	- Click the Deploy tab. Click the Manual Deploy button to manually do a build. Click the Enable Automatic Deploys to enable the CI/CD build pipeline.
+	- Open the app. 
+	- If your app did not start then use the Heroku CLI and run the following commands:
 		- heroku login
 		- heroku ps:scale web=1 -a [APP_NAME]
 	- Test by going to [HEROKU_URL]/hello/test2
