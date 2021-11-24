@@ -21,7 +21,7 @@
 
 ## Important Fies
 * .github/workflows - build scripts for Azure GitHub build pipeline
-* Procfile - start file for both Heroku and AWS Cloud Platforms
+* Procfile - start file for Heroku
 * web.config - start file for Azure
 
 ## Deployment to Cloud Platform Instructions
@@ -92,4 +92,30 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
  ```
 	- Go to Overview in azure and restart the app.
 	- Click on the app link in the Azure Overview page (it make take a few minutes until app is restarted and running).
+
+## AWS:
+1) Go to All Services and under Compute click on the Elastic Beanstalk option or type elastic beanstalk in the search bar. Once you see Elastic Beanstalk click on that option.
+2) Select Applications from the left pane. Click on the 'Create a new Application' button. Complete the following steps:
+	- Give the Application a name and click the Create button.
+	- Click on the 'Creat a new environment' button.
+	- Select the 'Web server environment' option. Click the Select button.
+	- Under the 'Platform' section select the Java platform option and the Coretto 11 option.
+	- Under the 'Application code' section Select the 'Sample application' option.
+	- Click the 'Configure more options' button.
+	- Under the 'Database' section click the Edit button.
+	- Select the mysql, the version of MySQL that you have built your application with, and the db.t2.micro options. Set the username and password for MySQL. Click the Save button.
+	- Click the 'Create environment' button. 
+	- It will take quite a few minutes before your application is ready. From the left pane click the Environments link and wait until the Health of your environments shows as OK.
+	- From the left pane under your environment name click the Configuration link. Under the Database configuration click the link to URL of your database. This will open the RDS service. Click on your DB under the DB identifier column.
+		- IMPORTANT: Under the 'Connectivity & security' section make sure the Public Accessibility setting is set to Yes. 
+		- IMPORTANT: Under the 'Security group rules' section click on the 'EC2 Security Group - Inbound' security group. Under the 'Inbound rules' tab click the 'Edit inbound rules' button. Click the 'Add rule" button. Add add a rule for 'All TCP with a source type of 'Anywhere-IPv4' set to 0.0.0.0/0, and click the 'Save Rule' button.
+		- IMPORTANT: Note the database Endpoint and Port under Connectivity" & security' section as this will be your database hostname and port for connecting to your database.
+		- Using MySQL Workbench setup a connection using the AWS Database Endpoint URI and credentials. Create the schema and tables by running the DDL script created from your development environment.				
+	- Configure and do a Maven build using the version of Java 11 for a JAR application. 	
+		- NOTE: Elastic BeanStalk’s load balancer uses path “/” by default for health checks. If you don’t have that path defined in your controller, your application will keep failing health checks and will show Severe as status in dashboard. You can either have “/” endpoint in your controller or edit the load balancer setting later to use different path instead.
+	- From the left pane under your environment name click the Configuration link. Under the Softare section click the Edit button. Under the 'Environment properties' add the following variable:
+		- SERVER_PORT with a value of 5000. Click the Apply button. Wait for the changes to be deployed.
+	- From the left pane click the Environments link. Click the link for your application environment. Click the 'Upload and deploy' button. Upload the application JAR file. Click the Deploy button. Wait for the changes to be deployed.
+	- From the left pane click the click the Environments link. Click the application URL to access your application. 		
+
 
