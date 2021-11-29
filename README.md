@@ -1,4 +1,4 @@
-# A simple Java Spring Boot with Thymeleaf templates that can be used for testing in various Cloud Platforms like Azure, AWS, Heroku, and Google Cloud. See the following directions for deploying a Java Spring Boot application to Azure and Heroku. NOTE: if you are using JSP's (which are not recommended by Spring) then you should build and deploy a WAR file.
+# A simple Java Spring Boot with Thymeleaf templates that can be used for testing in various Cloud Platforms like Azure, AWS, Heroku, and Google Cloud. See the following directions for deploying a Java Spring Boot application as a JAR with embedded server to Azure, Heroku, AWS, and Google Cloud. NOTE: if you are using JSP's (which are not recommended by Spring) then you should build and deploy a WAR file.
 
 <p align="center">
 <img src="Diagrams/logo1.png"/><img src="Diagrams/logo2.png" /><img src="Diagrams/logo3.png" /> 
@@ -12,11 +12,11 @@
 * Thymeleaf and Layouts
 * Jasypt encrytion of database username and password properties 
 	- NOTE: set an environment variable JASYPT_ENCRYPTOR_PASSWORD to your secret key 
-* Deployment to Azure and Heroku
+* Deployment to Azure, Heroku, AWS, and Google Cloud
 
 ## Building and Testing
 1. Run maven from Spring Tools Suite or Eclipse to build the project. The build artifacts will be stored in the `target/` directory.
-2. Set the Java version to 15 for Herokuu or 11 for Azure in the POM file. Test the Java Spring App locally by using JAVA: Open a terminal and navigate to the root of your project. Run the following command from the terminal window: java -jar target/*.jar
+2. Set the Java version to 15 for Heroku or 11 for Azure, AWS, and Google in the POM file. Test the Java Spring App locally by using JAVA: Open a terminal and navigate to the root of your project. Run the following command from the terminal window: java -jar target/*.jar
 3. Goto localhost:8080/ OR localhost:8080/hello/test2 OR localhost:8080/[APP_NAME]/hello/test to validate the web app
 
 ## Important Fies
