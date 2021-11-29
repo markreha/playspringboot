@@ -92,7 +92,7 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
 </configuration>
  ```
 	- Go to Overview in azure and restart the app.
-	- Click on the app link in the Azure Overview page (it make take a few minutes until app is restarted and running).
+	- Click on the app link in the Azure Overview page (it may take a few minutes until app is restarted and running).
 
 ## AWS:
 1) Go to All Services and under Compute click on the Elastic Beanstalk option or type elastic beanstalk in the search bar. Once you see Elastic Beanstalk click on that option.
