@@ -122,33 +122,33 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
 ## Google App Engine:
 1) Create an account on Google Cloud.
 2) Create a new App Engine application of type Java using the following steps:
-	a. Select App Engine from the Main Menu.
-	b. Click the ‘Select a Project’ dropdown list and then click the New Project icon.
-	c. Give your Project a Name and click the Create button.
-	d. From the Welcome to App Engine screen click the Create Application button.
-	e. Select a Region from the US and click the Next button.
-	f. Select Java from Language list and a Standard Environment. Click the Next button. => This option was not available
+	- Select App Engine from the Main Menu.
+	- Click the ‘Select a Project’ dropdown list and then click the New Project icon.
+	- Give your Project a Name and click the Create button.
+	- From the Welcome to App Engine screen click the Create Application button.
+	- Select a Region from the US and click the Next button.
+	- Select Java from Language list and a Standard Environment. Click the Next button. => This option was not available
 3) Create a new MySQL Database using the following steps:
-	a. Select SQL menu item from the Main Menu. Click the Create Instance button.
-	b. Click the Choose MySQL button. If prompted click the Enable API button.
-	c. Fill out the Instance ID (database name), root password, desired version of MySQL, region, and single zone options.
-	d. Expand the Show Configuration Options. Select the Machine Type of Shared Core with 1vCPU and .614GB. Make sure Public IP is enabled. Click the Create Instance button. NOTE: it is extremely important that these options are set to avoid being charged by Google for your database usage.
-	e. The database instance can take quite a few minutes to complete.
-	f. Note your Public IP Address.
-	g. From the left pane select the Users menu, click the Add User Account button, and then create a new user [DB_USERNAME]/[DB_PASSWORD] with the Allow any host option. Click the Add button.
-	h. Select the Database menu, enter your new Database (your schema) name and click the Create button.
-	i. Get your public IP Address by going to your browser and in the search bar enter ‘My IP’. Note your IPv4 Address for the next step.
-	j. Select the Connections menu and under Authorization Networks click Add Network button, name of GCU, network of your IP Address (from previous step), click Done and Save buttons.
-	k. The database updates can take quite a few minutes to complete.
-	l. Setup a MySQL Workbench connection using the databases IP address (listed in the Overview menu) and your database credentials (setup from the prior step).
-	m. Connect to the database in MySQL Workbench and run your DDL script.
-	n. From the main Google menu go to APIs & Services, click on the Library menu, search for Google Cloud SQL, click on each one, and make sure both Cloud SQL and Cloud SQL Admin API are enabled.
+	- Select SQL menu item from the Main Menu. Click the Create Instance button.
+	- Click the Choose MySQL button. If prompted click the Enable API button.
+	- Fill out the Instance ID (database name), root password, desired version of MySQL, region, and single zone options.
+	- Expand the Show Configuration Options. Select the Machine Type of Shared Core with 1vCPU and .614GB. Make sure Public IP is enabled. Click the Create Instance button. NOTE: it is extremely important that these options are set to avoid being charged by Google for your database usage.
+	- The database instance can take quite a few minutes to complete.
+	- Note your Public IP Address.
+	- From the left pane select the Users menu, click the Add User Account button, and then create a new user [DB_USERNAME]/[DB_PASSWORD] with the Allow any host option. Click the Add button.
+	- Select the Database menu, enter your new Database (your schema) name and click the Create button.
+	- Get your public IP Address by going to your browser and in the search bar enter ‘My IP’. Note your IPv4 Address for the next step.
+	- Select the Connections menu and under Authorization Networks click Add Network button, name of GCU, network of your IP Address (from previous step), click Done and Save buttons.
+	- The database updates can take quite a few minutes to complete.
+	- Setup a MySQL Workbench connection using the databases IP address (listed in the Overview menu) and your database credentials (setup from the prior step).
+	- Connect to the database in MySQL Workbench and run your DDL script.
+	- From the main Google menu go to APIs & Services, click on the Library menu, search for Google Cloud SQL, click on each one, and make sure both Cloud SQL and Cloud SQL Admin API are enabled.
 4) Configure, build, test, and deploy the Spring Boot test application using the following steps:
-	a. Open up a Cloud Shell from the Activate Cloud Shell icon in the top menu. From the Cloud Shell, create a working directory, change into that working directory, and perform the following operations. 
+	- Open up a Cloud Shell from the Activate Cloud Shell icon in the top menu. From the Cloud Shell, create a working directory, change into that working directory, and perform the following operations. 
 		• NOTE: once you have a Cloud Shell open if you click on the Pencil icon from the Cloud Shell menu this will open a tree view of your code, which allows you to edit some of your configuration files. Once you are in the editor you can also upload files into your project.
-	b. Run the following command from the Cloud Shell:
+	- Run the following command from the Cloud Shell:
 		• git clone [URL to your Test App Repo]
-	c. Click the Open Editor button and make the following changes to the application:
+	- Click the Open Editor button and make the following changes to the application:
 		• Update the POM file with the following changes:
 			- Set Java to version 11:
 ```xml
