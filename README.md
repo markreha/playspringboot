@@ -98,7 +98,7 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
 1) Go to All Services and under Compute click on the Elastic Beanstalk option or type elastic beanstalk in the search bar. Once you see Elastic Beanstalk click on that option.
 2) Select Applications from the left pane. Click on the 'Create a new Application' button. Complete the following steps:
 	- Give the Application a name and click the Create button.
-	- Click on the 'Creat a new environment' button.
+	- Click on the 'Create a new environment' button.
 	- Select the 'Web server environment' option. Click the Select button.
 	- Under the 'Platform' section select the Java platform option and the Coretto 11 option.
 	- Under the 'Application code' section Select the 'Sample application' option.
