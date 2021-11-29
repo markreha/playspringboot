@@ -23,7 +23,8 @@
 * .github/workflows - build scripts for Azure GitHub build pipeline
 * Procfile - start file for Heroku
 * web.config - start file for Azure
-
+* app.yaml - start file for Google App Engine
+* 
 ## Deployment to Cloud Platform Instructions
 ## Heroku:
 1) Add a file named Procfile to the root of the project:
@@ -118,4 +119,107 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
 	- From the left pane click the Environments link. Click the link for your application environment. Click the 'Upload and deploy' button. Upload the application JAR file. Click the Deploy button. Wait for the changes to be deployed.
 	- From the left pane click the click the Environments link. Click the application URL to access your application. 		
 
+## Google App Engine:
+1) Create an account on Google Cloud.
+2) Create a new App Engine application of type Java using the following steps:
+	a. Select App Engine from the Main Menu.
+	b. Click the ‘Select a Project’ dropdown list and then click the New Project icon.
+	c. Give your Project a Name and click the Create button.
+	d. From the Welcome to App Engine screen click the Create Application button.
+	e. Select a Region from the US and click the Next button.
+	f. Select Java from Language list and a Standard Environment. Click the Next button. => This option was not available
+3) Create a new MySQL Database using the following steps:
+	a. Select SQL menu item from the Main Menu. Click the Create Instance button.
+	b. Click the Choose MySQL button. If prompted click the Enable API button.
+	c. Fill out the Instance ID (database name), root password, desired version of MySQL, region, and single zone options.
+	d. Expand the Show Configuration Options. Select the Machine Type of Shared Core with 1vCPU and .614GB. Make sure Public IP is enabled. Click the Create Instance button. NOTE: it is extremely important that these options are set to avoid being charged by Google for your database usage.
+	e. The database instance can take quite a few minutes to complete.
+	f. Note your Public IP Address.
+	g. From the left pane select the Users menu, click the Add User Account button, and then create a new user [DB_USERNAME]/[DB_PASSWORD] with the Allow any host option. Click the Add button.
+	h. Select the Database menu, enter your new Database (your schema) name and click the Create button.
+	i. Get your public IP Address by going to your browser and in the search bar enter ‘My IP’. Note your IPv4 Address for the next step.
+	j. Select the Connections menu and under Authorization Networks click Add Network button, name of GCU, network of your IP Address (from previous step), click Done and Save buttons.
+	k. The database updates can take quite a few minutes to complete.
+	l. Setup a MySQL Workbench connection using the databases IP address (listed in the Overview menu) and your database credentials (setup from the prior step).
+	m. Connect to the database in MySQL Workbench and run your DDL script.
+	n. From the main Google menu go to APIs & Services, click on the Library menu, search for Google Cloud SQL, click on each one, and make sure both Cloud SQL and Cloud SQL Admin API are enabled.
+4) Configure, build, test, and deploy the Spring Boot test application using the following steps:
+	a. Open up a Cloud Shell from the Activate Cloud Shell icon in the top menu. From the Cloud Shell, create a working directory, change into that working directory, and perform the following operations. 
+		• NOTE: once you have a Cloud Shell open if you click on the Pencil icon from the Cloud Shell menu this will open a tree view of your code, which allows you to edit some of your configuration files. Once you are in the editor you can also upload files into your project.
+	b. Run the following command from the Cloud Shell:
+		• git clone [URL to your Test App Repo]
+	c. Click the Open Editor button and make the following changes to the application:
+		• Update the POM file with the following changes:
+			- Set Java to version 11:
+```xml
+	<properties>
+ 		<java.version>11</java.version>
+	</properties>
+ ```
+ 
+			- Add the following dependencies:
+```xml
+        <!-- For Google App Engine -->
+        <dependency>
+   	        <groupId>com.google.cloud.sql</groupId>
+   	        <artifactId>mysql-socket-factory</artifactId>
+   	        <version>1.0.5</version>
+        </dependency>
+        <dependency>
+   	        <groupId>com.google.api-client</groupId>
+   	        <artifactId>google-api-client</artifactId>
+   	        <version>1.23.0</version>
+        </dependency>
+        <dependency>
+   	        <groupId>com.google.api-client</groupId>
+   	        <artifactId>google-api-client-appengine</artifactId>
+   	        <version>1.21.0</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.3</version>
+            <scope>runtime</scope>
+        </dependency>		
+```
+
+			- Add the following plugins:
+```xml
+            <!-- For Google App Engine -->
+            <plugin>
+   	            <groupId>com.google.cloud.tools</groupId>
+   	            <artifactId>appengine-maven-plugin</artifactId>
+   	            <version>2.2.0</version>
+                <configuration>
+                    <version>1</version>
+                    <projectId>GCLOUD_CONFIG</projectId>
+                </configuration>
+```
+		• Create a new directory named appengine under src/main. Create new file in src/main/appengine named app.yaml with the following entries:
+```xml
+runtime: java11
+handlers:
+- url: /.*
+  script: this field is required, but ignored
+manual_scaling:
+  instances: 1
+```
+		
+		• Update application.properties file with the MySQL connection configuration as follows:
+spring.datasource.url=jdbc:mysql://google/[SCHEMA]?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=[PROJECT_NAME_ID]:[DB_REGION]:[DB_INSTANCE_NAME]
+
+	d. Test locally in Cloud Shell by navigating to the root or you project and running the following commands:
+		• mvn clean package
+		• cd target
+		• java -jar [JAR_NAME]
+		• Make sure there are no errors at startup
+		• Test by clicking on the Web Preview icon in the Shell and use port 8080 option
+	3. Deploy in Cloud Shell by navigating to the root of you project and running the following command:
+		• Deploy to App Engine: mvn package appengine:deploy
+		• This will take a few minutes to complete
+		• Test by going to https://[PROJECT_NAME].appspot.com/
 
