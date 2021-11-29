@@ -198,9 +198,10 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
                     <version>1</version>
                     <projectId>GCLOUD_CONFIG</projectId>
                 </configuration>
+            </plugin>
 ```
 		• Create a new directory named appengine under src/main. Create new file in src/main/appengine named app.yaml with the following entries:
-```xml
+```yaml
 runtime: java11
 handlers:
 - url: /.*
