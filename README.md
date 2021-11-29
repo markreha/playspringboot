@@ -75,9 +75,9 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
 	- Run your app.
 	- Under MySQL In Aop, enable the database, click the Save button, run your app, then go back to MySQL in App and click the Manage link to display phpMyAdmin MySQL Client, create database and initialize schema using DDL script.
 	- Go to Advanced Tools to get DB credentials and configure your app.
-	- Update the JDBC string in application.properties with the MySQL Port and make sure to add ?serverTimezone=UTF 
+	- Update the JDBC string in application.properties with the MySQL Port and make sure to add the parameter ?serverTimezone=UTF 
 	- Set the Java version to 11 in the POM.xml and do a Maven build. Rename the output jar to app.jar.
-	- Go to Advanced Tools, navigate to site/wwwroot, delete all all exiting content, and drag and drap a zip file containing the web.config (see example below) and app.jar to the page.
+	- Go to Advanced Tools, navigate to site/wwwroot, delete all existing content, and drag and drop a zip file containing the web.config (see example below) and app.jar to the page.
  ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
