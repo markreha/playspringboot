@@ -13,6 +13,7 @@
 * Jasypt encrytion of database username and password properties 
 	- NOTE: set an environment variable JASYPT_ENCRYPTOR_PASSWORD to your secret key 
 * Deployment to Azure, Heroku, AWS, and Google Cloud
+* A good article on deploying to AWS can be found [here] (https://aws.amazon.com/blogs/devops/deploying-a-spring-boot-application-on-aws-using-aws-elastic-beanstalk/)
 
 ## Building and Testing
 1. Run maven from Spring Tools Suite or Eclipse to build the project. The build artifacts will be stored in the `target/` directory.
