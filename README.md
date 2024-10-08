@@ -133,7 +133,7 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
 3) Create a new MySQL Database using the following steps:
 	- Select SQL menu item from the Main Menu. Click the Create Instance button.
 	- Click the Choose MySQL button. If prompted click the Enable API button.
-	- Fill out the Instance ID (database name), root password, desired version of MySQL, region, and single zone options.
+	- Fill out the Instance ID (database name), root password, desired version of MySQL (note MySQL 5.7 is no longer supported), region, and single zone options.
 	- Expand the Show Configuration Options. Select the Machine Type of Shared Core with 1vCPU and .614GB. Make sure Public IP is enabled. Click the Create Instance button. NOTE: it is extremely important that these options are set to avoid being charged by Google for your database usage.
 	- The database instance can take quite a few minutes to complete.
 	- Note your Public IP Address.
@@ -152,7 +152,7 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
 		• git clone [URL to your Test App Repo]
 	- Click the Open Editor button and make the following changes to the application:
 		• Update the POM file with the following changes:
-			- Set Java to version 11:
+			- Set Java to version 11 for Spring Boot 2.x and to version 17 for Spring Boot 3.x:
 ```xml
 	<properties>
  		<java.version>11</java.version>
@@ -161,22 +161,22 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
  
 			- Add the following dependencies:
 ```xml
-        <!-- For Google App Engine -->
-        <dependency>
-   	        <groupId>com.google.cloud.sql</groupId>
-   	        <artifactId>mysql-socket-factory</artifactId>
-   	        <version>1.0.5</version>
-        </dependency>
-        <dependency>
-   	        <groupId>com.google.api-client</groupId>
-   	        <artifactId>google-api-client</artifactId>
-   	        <version>1.23.0</version>
-        </dependency>
-        <dependency>
-   	        <groupId>com.google.api-client</groupId>
-   	        <artifactId>google-api-client-appengine</artifactId>
-   	        <version>1.21.0</version>
-        </dependency>
+        <!-- For Google App Engine AND MySQL 8.x since MySQL 5.x is no longer supported -->
+		<dependency>
+        	<groupId>com.google.cloud.sql</groupId>
+        	<artifactId>mysql-socket-factory-connector-j-8</artifactId>
+        	<version>1.18.1</version>
+    	</dependency>
+    	<dependency>
+        	<groupId>com.google.api-client</groupId>
+      		<artifactId>google-api-client</artifactId>
+      		<version>1.31.1</version>
+    	</dependency>
+    	<dependency>
+        	<groupId>com.google.api-client</groupId>
+        	<artifactId>google-api-client-appengine</artifactId>
+        	<version>1.21.0</version>
+    	</dependency>
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
@@ -187,20 +187,20 @@ CMD [ "sh", "-c", "java -jar $JAVA_OPTS -Xmx300m -Xss512k -Dserver.port=$PORT /a
             <version>2.3.3</version>
             <scope>runtime</scope>
         </dependency>		
-```
 
-			- Add the following plugins:
+
+	- Add the following plugins:
 ```xml
-            <!-- For Google App Engine -->
-            <plugin>
-   	            <groupId>com.google.cloud.tools</groupId>
-   	            <artifactId>appengine-maven-plugin</artifactId>
-   	            <version>2.2.0</version>
-                <configuration>
-                    <version>1</version>
-                    <projectId>GCLOUD_CONFIG</projectId>
-                </configuration>
-            </plugin>
+	 <!-- For Google App Engine -->
+	<plugin>
+            <groupId>com.google.cloud.tools</groupId>
+            <artifactId>appengine-maven-plugin</artifactId>
+            <version>2.2.0</version>
+            <configuration>
+                <version>1</version>
+                <projectId>GCLOUD_CONFIG</projectId>
+            </configuration>
+        </plugin>
 ```
 		• Create a new directory named appengine under src/main. Create new file in src/main/appengine named app.yaml with the following entries:
 ```yaml
