@@ -1,11 +1,4 @@
-runtime: java
-env: standard
-runtime_config:
-  jdk: openjdk11
-beta_settings:
-    cloud_sql_instances: test-spring-boot-333614:us-central1:test
-
-
+runtime: java11
 handlers:
 - url: /.*
   script: this field is required, but ignored
